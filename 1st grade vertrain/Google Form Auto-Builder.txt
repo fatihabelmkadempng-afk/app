@@ -1,0 +1,307 @@
+/**
+ * Mission: Thank a Hero! Veterans Day Escape Room
+ * Google Form Auto-Builder
+ * (c) Mr. Pencil & Co. For the purchasing teacher's own classroom only.
+ *
+ * HOW TO USE (about 2 minutes)
+ * 1. Go to script.google.com and sign in. Click "New project".
+ * 2. Delete the lines already in the editor.
+ * 3. Copy EVERYTHING in this file and paste it into the editor.
+ * 4. Click Save (the floppy disk icon), then click Run.
+ * 5. Allow the permissions Google asks for (Review permissions > your account >
+ *    Advanced > Go to project > Allow). The warning appears because you made the script.
+ * 6. When it says "Execution completed", open the log at the bottom of the page.
+ *    It shows the EDIT link (for you) and the STUDENT link (for your class).
+ */
+
+var FORM_SPEC = [
+  {
+    "type": "header",
+    "title": "Mission: Thank a Hero! Veterans Day Escape Room",
+    "description": "Mr. Pencil has a big mailbox. Inside is a giant thank-you card for veterans. But oh no, the mailbox is locked! The lock needs 4 secret numbers. Each mission you finish gives you one number. Find all 4 numbers to open the mailbox. Then we can send the card to our heroes. Are you ready? Let’s go!\n\nEach mission gives you 1 lock number. Write each number on paper!",
+    "confirmation": "You unlocked the Thank-You Mailbox! Thank you, veterans!"
+  },
+  {
+    "type": "text",
+    "title": "What is your first name?",
+    "help": "",
+    "validation": null,
+    "error": ""
+  },
+  {
+    "type": "section",
+    "mission": 1,
+    "title": "Mission 1: What Is Veterans Day?",
+    "description": "Read the story. Then answer the questions.\n\nWhat Is Veterans Day?\n\n(1) A veteran is a person who served our country. (2) Veterans worked in the military to keep us safe. (3) Some were in the Army or the Navy. (4) Some were in the Air Force or the Marines.\n\n(5) Veterans Day is on November 11. (6) It comes every year in the fall. (7) On this day, we say thank you. (8) We thank veterans for being brave and kind.\n\n(9) Many towns have a big parade. (10) People march and play loud drums. (11) You may see flags wave in the wind. (12) Our flag is red, white, and blue. (13) Some people wear a small red poppy. (14) A poppy is a flower that helps us remember.\n\n(15) You can help on Veterans Day, too! (16) You can make a card for a veteran. (17) You can wave a flag and say thanks. (18) A big thank you makes a veteran smile.\n\nWords to Know\nveteran: a person who served in the military\nmilitary: the groups that keep our country safe\nparade: people who march down the street\npoppy: a small red flower"
+  },
+  {
+    "type": "text",
+    "title": "1. What is a veteran?",
+    "help": "A = a big drum\nB = a person who served our country\nC = a kind of flower\nType A, B, or C.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Bb]\\s*$"
+    },
+    "error": "Read sentence 1 again. It tells who a veteran is."
+  },
+  {
+    "type": "text",
+    "title": "2. How many colors are on our flag?",
+    "help": "A = 2\nB = 4\nC = 3\nType A, B, or C.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Cc]\\s*$"
+    },
+    "error": "Find the sentence about our flag. Count each color word."
+  },
+  {
+    "type": "text",
+    "title": "3. When is Veterans Day?",
+    "help": "A = November 11\nB = July 4\nC = December 25\nType A, B, or C.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Aa]\\s*$"
+    },
+    "error": "Look at sentence 5. What day is Veterans Day?"
+  },
+  {
+    "type": "text",
+    "title": "4. Veterans Day is in the spring.",
+    "help": "Type T for true or F for false.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Ff]\\s*$"
+    },
+    "error": "Look again. Which season does Veterans Day come in?"
+  },
+  {
+    "type": "text",
+    "title": "5. Which flower do some people wear on Veterans Day?",
+    "help": "Look at the pictures.\nA = a tall yellow sunflower\nB = a small red poppy\nC = a white daisy\nType A, B, or C.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Bb]\\s*$"
+    },
+    "error": "Find the flower in the story. What is its name?"
+  },
+  {
+    "type": "section",
+    "mission": 2,
+    "title": "Mission 2: Veterans Day Math",
+    "description": "Great job! Your first lock number is 3. Write it down!\n\nSolve each problem. Type the number only."
+  },
+  {
+    "type": "text",
+    "title": "1. Sam has 8 flags. He gets 6 more flags. How many flags does Sam have now?",
+    "help": "Picture: 8 flags, a plus sign, and 6 more flags.",
+    "validation": {
+      "kind": "number",
+      "value": 14
+    },
+    "error": "Start at 8. Count up 6 more on your fingers."
+  },
+  {
+    "type": "text",
+    "title": "2. Our class made 15 thank-you cards. We mailed 9 cards. How many cards are left?",
+    "help": "Picture: 15 thank-you cards. 9 of them have an X on them.",
+    "validation": {
+      "kind": "number",
+      "value": 6
+    },
+    "error": "Start with all the cards. Take away the ones we mailed."
+  },
+  {
+    "type": "text",
+    "title": "3. Mia has 12 poppies. She gives 5 poppies to her grandpa. How many poppies does Mia have left?",
+    "help": "Picture: 12 poppies. 5 of them have an X on them.",
+    "validation": {
+      "kind": "number",
+      "value": 7
+    },
+    "error": "Draw 12 circles. Cross out 5. Count what is left."
+  },
+  {
+    "type": "text",
+    "title": "4. Ben has 13 stars. Ava has 9 stars. How many more stars does Ben have than Ava?",
+    "help": "Picture: a row of 13 stars for Ben. Under it, a row of 9 stars for Ava.",
+    "validation": {
+      "kind": "number",
+      "value": 4
+    },
+    "error": "Line up the two rows. Count the stars that have no partner."
+  },
+  {
+    "type": "text",
+    "title": "5. Each box holds 10 flags. There are 4 boxes. How many flags are there in all?",
+    "help": "Picture: 4 boxes. Each box says 10.",
+    "validation": {
+      "kind": "number",
+      "value": 40
+    },
+    "error": "Count by tens. Say one number for each box."
+  },
+  {
+    "type": "text",
+    "title": "6. The parade has 5 red flags, 4 white flags, and 6 blue flags. How many flags are there in all?",
+    "help": "Picture: 5 red flags, 4 white flags, and 6 blue flags.",
+    "validation": {
+      "kind": "number",
+      "value": 15
+    },
+    "error": "Add two colors first. Then add the last color."
+  },
+  {
+    "type": "section",
+    "mission": 3,
+    "title": "Mission 3: Dog Tag Decoder",
+    "description": "Super! Your second lock number is 7. Write it down!\n\nEach dog tag has a secret word. Each number is a letter. Use the key.\n\nA=1  B=2  C=3  D=4  E=5  F=6  G=7  H=8  I=9  J=10  K=11  L=12  M=13  N=14  O=15  P=16  Q=17  R=18  S=19  T=20  U=21  V=22  W=23  X=24  Y=25  Z=26\n\nType each word in small letters."
+  },
+  {
+    "type": "text",
+    "title": "Dog tag 1:  6 - 12 - 1 - 7",
+    "help": "Type the word.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Ff][Ll][Aa][Gg]\\s*$"
+    },
+    "error": "Find each number on the key. This word waves in the wind!"
+  },
+  {
+    "type": "text",
+    "title": "Dog tag 2:  8 - 5 - 18 - 15",
+    "help": "Type the word.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Hh][Ee][Rr][Oo]\\s*$"
+    },
+    "error": "Match each number to a letter. Veterans are this kind of person."
+  },
+  {
+    "type": "text",
+    "title": "Dog tag 3:  20 - 8 - 1 - 14 - 11",
+    "help": "Type the word.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Tt][Hh][Aa][Nn][Kk]\\s*$"
+    },
+    "error": "Five numbers make five letters. We say this word and then “you.”"
+  },
+  {
+    "type": "text",
+    "title": "Dog tag 4:  6 - 9 - 22 - 5",
+    "help": "This one is a number word! Type the word.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Ff][Ii][Vv][Ee]\\s*$"
+    },
+    "error": "Match each number to a letter. This word is a number word!"
+  },
+  {
+    "type": "section",
+    "mission": 4,
+    "title": "Mission 4: Word Scramble",
+    "description": "Awesome! Your third lock number is 5. Write it down!\n\nFix the mixed-up words. Use the word bank.\n\nWord bank: flag, hero, star, brave, drum"
+  },
+  {
+    "type": "text",
+    "title": "1.  g a l f",
+    "help": "Type the word in small letters.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Ff][Ll][Aa][Gg]\\s*$"
+    },
+    "error": "It has 4 letters. It is red, white, and blue."
+  },
+  {
+    "type": "text",
+    "title": "2.  o r e h",
+    "help": "Type the word in small letters.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Hh][Ee][Rr][Oo]\\s*$"
+    },
+    "error": "Look at the word bank. Who is brave and helps others?"
+  },
+  {
+    "type": "text",
+    "title": "3.  r s a t",
+    "help": "Type the word in small letters.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Ss][Tt][Aa][Rr]\\s*$"
+    },
+    "error": "It shines at night. You can see it on our flag, too."
+  },
+  {
+    "type": "text",
+    "title": "4.  r b e a v",
+    "help": "Type the word in small letters.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Bb][Rr][Aa][Vv][Ee]\\s*$"
+    },
+    "error": "It has 5 letters. It means you are not scared."
+  },
+  {
+    "type": "text",
+    "title": "5.  m u r d",
+    "help": "Type the word in small letters.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*[Dd][Rr][Uu][Mm]\\s*$"
+    },
+    "error": "You hit it in a parade. Boom, boom, boom!"
+  },
+  {
+    "type": "section",
+    "mission": 5,
+    "title": "Open the Thank-You Mailbox!",
+    "description": "Wow! Your fourth lock number is 4. Write it down!\n\nNow you have all 4 lock numbers. Type them in order to open the mailbox."
+  },
+  {
+    "type": "text",
+    "title": "What is the 4-number code?",
+    "help": "Type your 4 lock numbers.",
+    "validation": {
+      "kind": "regex",
+      "pattern": "^\\s*3\\s*7\\s*5\\s*4\\s*$"
+    },
+    "error": "Put your 4 lock numbers in order: Mission 1, 2, 3, then 4."
+  },
+  {
+    "type": "section",
+    "mission": 6,
+    "title": "You did it!",
+    "description": "You unlocked the Thank-You Mailbox! Thank you, veterans!\n\nClick Submit to send the thank-you card to our heroes."
+  }
+];
+
+function buildThankAHeroForm() {
+  var form = null;
+  FORM_SPEC.forEach(function (item) {
+    if (item.type === 'header') {
+      form = FormApp.create(item.title);
+      form.setDescription(item.description);
+      form.setProgressBar(true);
+      form.setConfirmationMessage(item.confirmation);
+      form.setShowLinkToRespondAgain(false);
+    } else if (item.type === 'section') {
+      form.addPageBreakItem().setTitle(item.title).setHelpText(item.description);
+    } else {
+      var q = form.addTextItem().setTitle(item.title).setRequired(true);
+      if (item.help) q.setHelpText(item.help);
+      if (item.validation) {
+        var rule = FormApp.createTextValidation().setHelpText(item.error);
+        if (item.validation.kind === 'regex') {
+          rule = rule.requireTextMatchesPattern(item.validation.pattern);
+        } else {
+          rule = rule.requireNumberEqualTo(item.validation.value);
+        }
+        q.setValidation(rule.build());
+      }
+    }
+  });
+  Logger.log('Done! Your form is ready.');
+  Logger.log('EDIT link (keep this for yourself): ' + form.getEditUrl());
+  Logger.log('STUDENT link (share this with your class): ' + form.getPublishedUrl());
+}
