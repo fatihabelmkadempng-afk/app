@@ -15,6 +15,15 @@ An original Veterans Day reading and math escape room for 1st grade by **Mr. Pen
 | `Google Form Auto-Builder.txt` | Paste into script.google.com and click Run. It builds the whole form in about 2 minutes. |
 | `Google Form Images/` | Optional pictures for the form: header, flowers, decoder key, word bank, open mailbox |
 
+## Marketing (upload to your TPT listing)
+
+| File | What it is |
+|---|---|
+| `Marketing/TPT Thumbnail 01-cover.png` to `05-answer-key.png` | Five 1500 x 1500 thumbnails built from the real product pages. Use 01 as the main cover. |
+| `Marketing/TPT Preview Video - Mission Thank a Hero.mp4` | A 33-second, 1080 x 1080 preview video (H.264 MP4) |
+| `Marketing/TPT Preview Video - poster.jpg` | A still frame to use as the video cover |
+| `Marketing/Genspark Prompts.md` | Image and video prompts to paste into Genspark if you want AI-made extras |
+
 ## Files for you (do not upload)
 
 | File | What it is |
@@ -30,6 +39,7 @@ An original Veterans Day reading and math escape room for 1st grade by **Mr. Pen
 cd "1st grade vertrain/source"
 node check.js                             # re-solves every answer and checks the rules
 NODE_PATH=$(npm root -g) node build.js    # remakes every PDF, image, and text file
+NODE_PATH=$(npm root -g) node marketing.js  # remakes thumbnails and the preview video (needs ffmpeg: pip install imageio-ffmpeg)
 ```
 
 `check.js` stops the build if a math answer is wrong or a hint gives away its answer. It also checks sentence length, banned words, and that the 4 lock digits match the code. `build.js` fails if anything spills past a page edge or any student text is smaller than 18pt.
